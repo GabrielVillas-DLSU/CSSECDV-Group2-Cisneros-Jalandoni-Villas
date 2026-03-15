@@ -1,0 +1,83 @@
+<title>Home</title>
+
+<body>
+    {{> navbar}}
+
+    <div class="main-home">
+        <div id="home-base">
+            <div id="home-page">
+                <div id="page-left">
+                    <h1>A Touch <br> Of <br> Care!</h1>
+                    <br>
+                    <p>“Welcome to Sanfer Petshop where we value the well-being of your <br>
+                        beloved fur babies. Made with premium natural ingredients, our <br>
+                        products have the best quality, ensuring the safety of your pets.”
+                    </p>
+
+                    <!-- Login Button -->
+                    {{#if user}}
+                        <br>
+                        <p>Welcome, {{user.role}}!</p>
+                        <br>
+                        <p>Last Successful login: {{formatDate user.lastSuccessLogin}}</p>
+                        <p>Last Failed login: {{formatDate user.lastFailedLogin}}</p>
+                        <br>
+                            {{#if messages.error}}
+                                <div class="alert alert-danger">{{messages.error}}</div>
+                            {{/if}}
+                        <a href="/auth/logout" class="btn btn-primary">Logout</a>
+                    {{else}}
+                        <a href="/login" class="btn btn-primary">Login</a>
+                        <a href="/register" class="btn btn-primary">Register</a>
+                    {{/if}}
+
+                    
+                </div>
+
+                <div id="page-right">  
+                </div>
+                {{#if user}}
+                {{#if (eq user.role "editor")}}
+                    {{#if stockSummary}}
+                        <div id="stock-summary">
+                            <div class="stock-box stock-in">
+                                In Stock<br>{{stockSummary.inStock}}
+                            </div>
+                            <div class="stock-box stock-low">
+                                Low Stock<br>{{stockSummary.lowStock}}
+                            </div>
+                            <div class="stock-box stock-out">
+                                Out of Stock<br>{{stockSummary.outOfStock}}
+                            </div>
+                        </div>
+
+                    {{/if}}
+                {{/if}}
+            {{/if}}
+
+
+                
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
+    {{> footer}}
+
+</body>

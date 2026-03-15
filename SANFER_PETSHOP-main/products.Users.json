@@ -1,0 +1,69 @@
+[{
+  "_id": {
+    "$oid": "683fb7cbbcaf19a8b2bfd799"
+  },
+  "username": "DumasAdmin2",
+  "password": "$2b$12$GqvaiJQ0d2vkgrmHd4khP.oOTJMQyKToALTkmo2J13soCPpm39Tye",
+  "role": "admin",
+  "securityQuestion": "What is your childhood nickname?",
+  "securityAnswer": "$2b$12$RhZEav2NUo5SjWeAWTIEOeNOyGK/6e9bImtEiU51iQ58h.yBnvepa",
+  "passwordChangedAt": {
+    "$date": "2025-06-04T03:04:43.443Z"
+  },
+  "passwordHistory": [
+    "$2b$12$oNSqx.Ehfx93y/mf4lVNHeWuzfJVWJs4uTHcrxKw2XQR2V/BkA.yO"
+  ],
+  "failedLoginAttempts": 0,
+  "__v": 0,
+  "lastSuccessLogin": {
+    "$date": "2025-07-17T08:46:15.768Z"
+  },
+  "lastFailedLogin": {
+    "$date": "2025-07-09T12:16:27.747Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68403274554f3b3774069823"
+  },
+  "username": "DumasEditor",
+  "password": "$2b$12$Sj3VsoPdSzS8sXfK5o/kgu0w7WH.0xNziYKnhu5BuyQKqlMEIWKfO",
+  "role": "editor",
+  "securityQuestion": "What was your childhood nickname?",
+  "securityAnswer": "$2b$12$y1Lzygh9BL/I.LLMIo8RDuF.IewtGiOZ4DIWoBPtP.SsdfmJgEx7S",
+  "passwordChangedAt": {
+    "$date": "2025-06-04T11:48:04.858Z"
+  },
+  "passwordHistory": [
+    "$2b$12$dh0qrQipCP3uXrPja2aBP.G3EwwMZwNt9v5JS1j7KM5GLQBbnFvR6"
+  ],
+  "failedLoginAttempts": 0,
+  "lastSuccessLogin": {
+    "$date": "2025-07-17T05:25:28.139Z"
+  },
+  "__v": 0,
+  "lastFailedLogin": {
+    "$date": "2025-07-03T08:18:43.441Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6870bcb9c511cdb2013d126d"
+  },
+  "username": "DumasCashier",
+  "password": "$2b$12$4Hg7cwMTrbw8EhfEcqL6R.T77YKMHQcKTXAk3pVVPfE9yJc8msFiu",
+  "role": "cashier",
+  "securityQuestion": "What was your childhood nickname?",
+  "securityAnswer": "$2b$12$KwMedXd9ECzeQCtjpnFqzO2fbUftHwM3bSOiXKruFE3lwl1187sjO",
+  "passwordChangedAt": {
+    "$date": "2025-07-11T07:26:49.861Z"
+  },
+  "passwordHistory": [
+    "$2b$12$hlAkeEMTXzpJWFBgAQo3..5MsmuEbl98VxeX/seyBKc7bwpdrvtzi"
+  ],
+  "failedLoginAttempts": 0,
+  "lastSuccessLogin": {
+    "$date": "2025-07-17T08:43:43.052Z"
+  },
+  "__v": 0
+}]

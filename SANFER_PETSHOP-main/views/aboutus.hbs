@@ -1,0 +1,88 @@
+<title>Bayli</title>
+
+<body>
+
+    {{> navbar}}
+
+    <div class="main">
+        <div id="about-base">
+
+            <section id="aboutus-page1">
+                <div id="about-page1">
+                    <div id="page1-left">
+                        <h1>Who are we?</h1>
+                        <br>
+                        <p>
+                            <i style="font-style:italic; font-style:bold; font-weight:bolder; color: #2e358f">A touch of care. </i>
+                            <br>
+                            SANFER PETSHOP
+                            (San Fernando, Pampanga)
+
+                        </p>
+                    </div>
+                    
+                    <div id="page1-right">
+                        <div id="page1-right-box"><img src="/photos/our_products1.png" alt="picture"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="aboutus-page2">
+                <div id="about-page2">
+                    
+                    <div id="page2-right">
+                        <h1>Our Products</h1>
+                        <br>
+                        <p>
+                            Most of our products are organic as they are made from premium natural ingredients such as fruits and herbs which are carefully selected to make sure that we can give the best possible quality of products that are safe for our pets. 
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="aboutus-page3"> 
+                <div id="about-page3">
+
+                    <div id="form-base">
+                        <span id="form-left">
+                            <form method="post" action="/send-form">
+                                <h1>Reach out to us!</h1>
+                                <div id="name">
+                                    <h2>Name</h2>
+                                    <input class="input-box" name="name" type="text" placeholder="e.g. Juan Dela Cruz" required>
+                                </div>
+
+                                <div id="email">
+                                    <h2>Email</h2>
+                                    <input class="input-box" name="email" type="email" placeholder="e.g. juan.dc@gmail.com" required>
+                                </div>
+
+                                <div id="message">
+                                    <h2> How can we help?</h2>
+                                    <textarea class="input-box" id="message-box" name="message" placeholder="Enter message" wrap="soft" maxlength="300" cols="33" rows="3" required></textarea>
+                                </div>
+
+                                <input type="hidden" name="access_key" value="6bfae227-37da-4565-88ba-19e55ddcaa6f">
+
+                                <div id="send-button">
+                                    <button type="submit"> Send Message </button>
+                                </div>
+                            </form>
+                        </span>
+
+                        <span id="form-right">
+                            
+                            <div id="page3-right-box">
+                                <img src="/photos/cat_dog.png">
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+    
+    {{> footer}}
+
+</body>

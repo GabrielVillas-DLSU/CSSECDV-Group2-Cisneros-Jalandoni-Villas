@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Sale</title>
+</head>
+<body>
+{{> navbar}}
+
+<div class="main">
+    <div class="form-container">
+        <h1 class="form-title">Add Sale</h1>
+
+        {{#if messages.error}}
+            <p class="form-message error">{{messages.error}}</p>
+        {{/if}}
+
+        {{#if messages.success}}
+            <p class="form-message success">{{messages.success}}</p>
+        {{/if}}
+
+        <form method="POST" action="/addsale" id="add-sale-form">
+        <div class="form-group">
+            <label for="productName">Product Name</label>
+            <input type="text" name="productName" id="productName" required>
+        </div>
+
+        <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input type="number" name="quantity" id="quantity" min="1" value="1" required oninput="calculateTotal()">
+        </div>
+
+        <div class="form-group">
+            <label for="unitPrice">Unit Price (₱)</label>
+            <input type="number" name="unitPrice" id="unitPrice" min="1" step="any" required oninput="calculateTotal()">
+        </div>
+
+        <div class="form-group">
+            <label for="totalPrice">Total Price (₱)</label>
+            <input type="number" id="totalPrice" name="price" readonly required>
+        </div>
+
+        <div class="form-group">
+            <label for="customerName">Customer Name</label>
+            <input type="text" name="customerName" required>
+        </div>
+
+        <div class="form-group">
+            <label for="paymentMethod">Payment Method</label>
+            <select name="paymentMethod" required>
+                <option value="" disabled selected>Select Method</option>
+                <option value="Cash">Cash</option>
+                <option value="Card">Card</option>
+                <option value="GCash">GCash</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" name="date" value="{{todayDate}}" required>
+        </div>
+
+        <button type="submit" id="save-button" class="submit-button">Save</button>
+    </form>
+
+    <script>
+        function calculateTotal() {
+            const qty = Number(document.getElementById('quantity').value);
+            const unit = Number(document.getElementById('unitPrice').value);
+            const total = qty && unit ? qty * unit : 0;
+            document.getElementById('totalPrice').value = total.toFixed(2);
+        }
+    </script>
+
+    </div>
+</div>
+
+{{> footer}}
+</body>
+</html>

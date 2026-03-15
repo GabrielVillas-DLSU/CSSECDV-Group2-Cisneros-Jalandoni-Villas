@@ -1,0 +1,47 @@
+<title>Add Product</title>
+
+<body>
+{{> navbar}}
+
+
+
+<div class="main">
+    <div class="form-container">
+        <h1 class="form-title">Add Product</h1>
+
+        {{#if messages.error}}
+            <p class="form-message error">{{messages.error}}</p>
+        {{/if}}
+
+        {{#if messages.success}}
+            <p class="form-message success">{{messages.success}}</p>
+        {{/if}}
+
+        <form method="POST" action="/add-product" id="edit-product-form">
+            <div class="form-group">
+                <label for="productName">Product Name</label>
+                <input type="text" name="productName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="productPrice">Price</label>
+                <input type="number" name="productPrice" min="1"required>
+            </div>
+
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="number" name="quantity" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="expiryDate">Expiry Date</label>
+                <input type="date" name="expiryDate" required>
+            </div>
+
+            <button type="submit" id="save-button" class="submit-button">Save</button>
+        </form>
+    </div>
+</div>
+
+{{> footer}}
+</body>

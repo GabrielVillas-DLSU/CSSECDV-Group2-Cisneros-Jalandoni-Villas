@@ -1,0 +1,46 @@
+<div class="productbox">
+    <div class="productbox-left">
+        <div>
+            <img src='{{getDisplayPicture Picture}}'>
+        </div>
+    </div>   
+    
+    <div class="productbox-right">
+        {{#if [Best Seller]}}
+            <input id='bestSeller' type="hidden" value="{{[Best Seller]}}"> 
+        {{/if}}
+
+        <div id="productbox-name">
+            <h1>{{"Product Name"}}</h1>
+        </div>
+
+        <div class="productbox-desc" id="productbox-desc">
+            <p>{{"Product Description"}}</p>
+        </div>
+
+        <div id="productbox-bottom">
+            <span id="productbox-infobox">
+                <div>
+                    Size:
+                    {{#with [Product Size]}}
+                        {{#if [Large]}}<span>{{[Large].[Size]}}{{[Large].[Unit]}}</span>{{/if}}
+                        {{#if [Medium]}}<span>{{[Medium].[Size]}}{{[Medium].[Unit]}}</span>{{/if}}
+                        {{#if [Small]}}<span>{{[Small].[Size]}}{{[Small].[Unit]}}</span>{{/if}}
+                    {{/with}}
+                </div>
+                <div>
+                    {{#if [Product Price].[Large]}}
+                        Price: &#8369;{{[Product Price].[Small]}} - &#8369;{{[Product Price].[Large]}}
+                    {{else}}
+                        Price: &#8369;{{[Product Price].[Small]}}
+                    {{/if}}
+                </div>
+            </span>
+            <span id="productbox-buttonbox">
+                <a href="/editproduct?id={{_id}}">
+                    <div id="editbox-viewbutton">Edit</div>
+                </a>
+            </span>
+        </div>
+    </div>
+</div>

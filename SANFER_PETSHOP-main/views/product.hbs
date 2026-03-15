@@ -1,0 +1,99 @@
+
+<body>
+
+    {{>navbar}}
+
+    <div class="main">
+        <div id="product-base">
+            
+            <span id="left-box">
+                <span style="overflow-x:hidden; overflow-y: auto; padding:20px">
+                {{#each (getPicture Product)}}
+                    {{>sidebox this}}
+                {{/each}}
+                </span>
+            </span>
+
+            <span id ="main-box"> 
+                <div> 
+                    <img id='focusedPicture' src="{{getFocusedPicture Product}}">
+                </div>
+            </span>
+
+            <span id = "right-box">
+                <div id="product-name">
+                    <h1>{{Product.[Product Name]}}</h1>
+                </div>
+
+                <hr>
+
+                <div id="price-box">
+                    <h1>Price: &#8369; <span id="price">{{getPrice Product.[Product Price]}} </span></h1>
+                </div>
+
+                <div id = "description-box">
+                    <h1> Description: </h1> 
+                    <div id="product-desc">
+                        <p>
+                            {{Product.[Product Description]}}
+                        </p>
+                    </div>
+
+                    {{!-- Implement drop down --}}
+                    <div id="more-info-dropdown">
+                            <h1> More Information: </h1>
+                    </div>
+                    
+                    <div id="product-additional-desc">
+                        <p>
+                            {{{Product.[Product Additional Info]}}}
+                        </p>
+                    </div>
+                </div>
+
+                {{!-- The underline doesn't show but you get the gist --}}
+                <div id ="size-box">
+                    <p>
+                        Size: 
+                    
+                        {{#with Product.[Product Size]}}
+                            {{#if Large}}
+                                <button id="large" class="size-button" onclick="changeProductSize('L', '{{../Product._id}}')"> {{Large.Size}}{{Large.Unit}} </button>
+                            {{/if}}
+
+                            {{#if Medium}}
+                                <button id="medium" class="size-button" onclick="changeProductSize('M', '{{../Product._id}}')"> {{Medium.Size}}{{Medium.Unit}} </button>
+                            {{/if}}
+
+                            {{#if Small}}
+                                <button id="small" class="size-button" onclick="changeProductSize('S', '{{../Product._id}}')"> {{Small.Size}}{{Small.Unit}} </button>
+                            {{/if}}
+                        {{/with}}
+                    </p>
+                    
+                </div>
+
+                {{#if Product.[URL]}}
+                    <a id="store-button" href="https://shopee.ph/{{urlToArray Product.[URL]}}">
+                        <h1>GO TO SHOPEE</h1>
+                    </a>
+                {{else}}
+                    <a id="store-button" style="background-color: grey;">
+                        <h1>NOT AVAILABLE</h1>
+                    </a>
+                {{/if}}
+
+
+            </span>
+
+            <div id="back-button"> 
+               <a href="/product-list"><span class="material-symbols-outlined"> arrow_back </span></a>
+            </div>
+
+        </div>
+    </div>
+    {{> footer}}
+
+</body>
+
+

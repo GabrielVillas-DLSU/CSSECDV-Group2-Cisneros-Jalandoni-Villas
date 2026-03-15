@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    {{> navbar}}
+
+    <main>
+        <div class="container">
+            <h2>Admin Panel</h2>
+            <h3>Security Logs</h3>
+
+            {{#if logEntries}}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Timestamp</th>
+                            <th>Level</th>
+                            <th>Message</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each logEntries}}
+                            <tr>
+                                <td>{{this.timestamp}}</td>
+                                <td>{{this.level}}</td>
+                                <td>{{this.message}}</td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            {{else}}
+                <p>No log entries found.</p>
+            {{/if}}
+        </div>
+    </main>
+</body>
+</html>

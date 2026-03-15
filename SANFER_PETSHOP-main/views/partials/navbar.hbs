@@ -1,0 +1,25 @@
+<div id="navbar">
+    <div id="nav-left">
+        <div id="nav-logo">
+            <a href="/home"><img src="/photos/logotransparent1.png" alt="logo"></a>
+        </div>
+    </div>
+    <div id="nav-right">
+        <div id="nav-options">
+            <ul>
+                <li><a href="/home">Home</a></li>
+                {{#if (eq user.role "buyer")}}
+                    <li><a href="/product-list">Products</a></li>
+                {{else if (eq user.role "admin")}}
+                    <li><a href="/admin">Admin</a></li>
+                    <li><a href="/expense">Expense</a></li>
+                {{else if (eq user.role "editor")}}
+                    <li><a href="/editproductlist">Edit Products</a></li>
+                {{else if (eq user.role "cashier")}}
+                    <li><a href="/cashier">Cashier</a></li>
+                {{/if}}
+                <li><a href="/about-us">About Us</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

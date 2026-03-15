@@ -1,0 +1,239 @@
+:root {
+    --left-box-bg: #d9d9d9;
+    --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    --lighter-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.10), 0 6px 20px 0 rgba(0, 0, 0, 0.23);
+    --product-name-color: #ec1454;
+    --line-color: #D9D9D9;
+    --desc-color: #757575;
+    --store-button-color: #535AB4;
+    --quantity-button-hover-color: black;
+    --arrow-color: #757575;
+    --back-button-color: #535AB4;
+    --darken-button-color: #424890;
+}
+
+
+#product-base {
+    padding-top: 30px;
+    padding-left: 70px;
+    padding-right: 70px;
+    display: flex;
+    flex-direction: row;
+}
+
+#left-box{
+    display: flex;
+    flex-direction: column;
+    margin-right: 100px;
+    height: 500px;
+}
+
+#left-box div {
+    background-color: var(--left-box-bg);
+    cursor: pointer;
+    border: 10px;
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+    margin-bottom:50px;
+    box-shadow: var(--box-shadow);
+    transition:all .2s ease-in-out;
+}
+
+#left-box div:hover{
+    transform: scale(1.1);
+    box-shadow: var(--lighter-box-shadow);
+}
+
+#main-box {
+    display: flex;
+    flex-direction: column;
+    margin-right: 100px;
+}
+
+#main-box > div {
+    background-color: var(--left-box-bg);
+    text-align: center;
+    border: 10px;
+    height:620px;
+    width: 620px;
+    max-height: 620px;
+    max-width: 620px;
+    box-shadow: var(--box-shadow);
+    
+}
+
+#main-box img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#right-box {
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+}
+
+#product-name{
+    font-family: 'Inter', serif;
+    margin-bottom: 30px;
+}
+
+#product-name > h1{
+    font-size: 30px;
+    text-align: center;
+    color: var(--product-name-color);
+    font-weight: 600;
+}
+hr {
+    border: 0;
+    clear:both;
+    display:block;
+    width: 100%;               
+    background-color: var(--line-color);
+    height: 3px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+#price-box{
+    font-family: 'Inter', serif;
+    margin-bottom: 30px
+}
+
+#price-box > h1{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+#description-box{
+    text-align: justify;
+    color: var(--desc-color);
+    margin-bottom: 40px;
+}
+
+#description-box h1{
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+#size-box{
+    margin-bottom: 30px;
+}
+
+#size-box button{
+    margin-right:10px;
+    padding:5px;
+}
+
+#size-box button:hover{
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-focus{
+    text-decoration: underline;
+    font-weight: bold;
+
+}
+#store-button{
+    background-color: var(--store-button-color);
+    height:60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#store-button:hover{
+    background-color: var(--darken-button-color);
+}
+
+
+#store-button > h1{
+    color: white;
+    font-weight: bolder;
+    word-spacing: 5px;
+}
+
+#product-desc {
+    padding: 5px;
+}
+
+#product-additional-desc{
+    padding: 10px;
+}
+
+#product-additional-desc  b{
+    font-weight: bold;
+}
+
+
+.arrow{
+    border: solid thin var(--arrow-color);
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.down {
+    transform: rotate(45def);
+    -webkit-transform: rotate(45deg);
+}
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+#back-button{
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    bottom: 70px;
+    left: 90px;
+    background-color: var(--back-button-color);
+}
+
+#back-button:hover{
+    background-color: var(--darken-button-color);
+    cursor: pointer;
+}
+
+#back-button span{
+    color: white;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    font-weight: bolder;
+}
+
+/* Edit product form styles */
+
+#edit-product-form textarea {
+    width: 100%; border: 1px solid #ddd; padding: 8px; height: 100px; resize: vertical;
+}
+
+#edit-product-form textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+#save-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#save-button:hover {
+    background-color: #45a049;
+}
+
+

@@ -1,0 +1,118 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Changed height to min-height */
+    padding: 20px; /* Added padding to body to prevent content from touching edges */
+}
+
+main {
+  width: 100%; /* Ensure main takes full width */
+  max-width: 400px; /* Limit the max-width of the container */
+}
+
+.container {
+    background: #fff;
+    padding: 30px; /* Increased padding */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Slightly softer shadow */
+    text-align: center;
+    width: 100%; /* Ensure container takes full width */
+}
+
+h2 {
+    margin-bottom: 25px; /* Increased margin */
+    color: #333;
+    font-size: 1.8em; /* Slightly larger font */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px; /* Increased margin between form groups */
+    text-align: left; /* Align labels to the left */
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 600; /* Slightly bolder font */
+}
+
+input, select {
+    padding: 12px; /* Increased padding */
+    margin-top: 5px;
+    border: 1px solid #ddd; /* Lightened border */
+    border-radius: 6px; /* Slightly more rounded corners */
+    width: 100%; /* Ensure inputs and selects take full width */
+    box-sizing: border-box; /* Include padding and border in width */
+    font-size: 1em; /* Slightly larger font */
+}
+
+button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px; /* Increased padding */
+    border-radius: 6px; /* Slightly more rounded corners */
+    cursor: pointer;
+    margin-top: 25px; /* Increased margin */
+    font-size: 1em; /* Slightly larger font */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.error {
+    color: red;
+    margin-top: 15px; /* Increased margin */
+    text-align: center;
+}
+
+/* Dashboard Styles */
+.dashboard {
+    text-align: center;
+}
+
+.logout {
+    margin-top: 20px;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background: red;
+    padding: 12px 20px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.logout:hover {
+    background: darkred;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}

@@ -1,0 +1,98 @@
+<title>Edit Product</title>
+
+<body>
+    {{> navbar}}
+
+    <div class="main">
+        <div id="product-base">
+
+            <!-- Left Side Image Thumbnails -->
+            <span id="left-box">
+                <span style="overflow-x:hidden; overflow-y: auto; padding:20px">
+                {{#if product.Picture}}
+                    {{#each (getPicture product)}}
+                        {{>sidebox this}}
+                    {{/each}}
+                {{else}}
+                    <p>No images available.</p>
+                    <img src="/public/photos/home_bg.png" alt="Default product image">
+                {{/if}}
+                </span>
+            </span>
+
+            <span id="main-box">
+                <div>
+                    <img id="focusedPicture" src="{{#if product.Picture}}{{getFocusedPicture product}}{{else}}/path/to/default-image.jpg{{/if}}">
+                </div>
+            </span>
+
+            <span id="right-box">
+                <form id="edit-product-form" method="post" action="/update-product/{{product._id}}">
+                    
+                    <div id="product-name">
+                        <input type="text" name="productName" value="{{product.[Product Name]}}" required style="font-size: 30px; text-align: center; color: var(--product-name-color); font-weight: 600; width: 100%; border: none; background: transparent;">
+                    </div>
+
+                    <hr>
+
+                    <div id="description-box">
+
+                            {{#if messages.error}}
+                                <div class="flash-error" style = "color: red; font-size: 20px; margin-top: 4px; font-family: 'Inter', serif;">
+                                    {{#each messages.error}}
+                                        <p>{{this}}</p>
+                                    {{/each}}
+                                </div>
+                            {{/if}}
+
+                            {{#if messages.success}}
+                                <div class="flash-success">
+                                    {{#each messages.success}}
+                                        <p>{{this}}</p>
+                                    {{/each}}
+                                </div>
+                            {{/if}}
+
+                        <h1>Description:</h1>
+                        <div id="product-desc">
+                            <textarea name="productDescription" required style="width: 100%; border: 1px solid #ddd; padding: 8px; height: 100px; resize: vertical;">{{product.[Product Description]}}</textarea>
+                        </div>
+
+                        <div id="more-info-dropdown">
+                            <h1>More Information:</h1>
+                        </div>
+
+                        <div id="product-additional-desc">
+                            <textarea name="addproductDescription" required style="width: 100%; border: 1px solid #ddd; padding: 8px; height: 100px; resize: vertical;">{{product.[Product Additional Info]}}</textarea>
+                        </div>
+
+
+                        <div id="product-quantity">
+                        <h1>Quantity:</h1>
+                        <input type="number" name="quantity" value="{{product.quantity}}" required min="0" style="width: 100%; padding: 8px; border: 1px solid #ddd;">
+                        </div>
+
+                        <div id="product-expiry">
+                        <h1>Expiry Date:</h1>
+                        <input type="date" name="expiryDate" value="{{product.expiryDate}}" style="width: 100%; padding: 8px; border: 1px solid #ddd;">
+                        </div>
+
+                    </div>
+
+
+                    <!-- Save Changes Button -->
+                    <button type="submit" id="save-button">Save Changes</button>
+
+                </form>
+            </span>
+
+            <!-- Back Button -->
+            <div id="back-button">
+                <a href="/editproductlist"><span class="material-symbols-outlined">arrow_back</span></a>
+            </div>
+
+        </div>
+    </div>
+
+    {{> footer}}
+</body>

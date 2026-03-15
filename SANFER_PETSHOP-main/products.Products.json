@@ -1,0 +1,123 @@
+[{
+  "_id": {
+    "$oid": "684b9ab48cf932e64ef035e0"
+  },
+  "Product Name": "TUXEDO COBRA GUPPY MALE",
+  "Product Price": {
+    "1 unit": 240
+  },
+  "quantity": 9,
+  "expiryDate": null
+},
+{
+  "_id": {
+    "$oid": "684b9ab48cf932e64ef035e1"
+  },
+  "Product Name": "TUXEDO COBRA GUPPY FEMALE",
+  "Product Price": {
+    "1 unit": 27
+  },
+  "quantity": 0,
+  "expiryDate": {
+    "$date": "2025-06-30T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "684b9ab48cf932e64ef035e2"
+  },
+  "Product Name": "RED KING COBRA GUPPY MALE",
+  "Product Price": {
+    "1 unit": 27
+  },
+  "quantity": 3,
+  "expiryDate": "2026-08-10T00:00:00.000Z"
+},
+{
+  "_id": {
+    "$oid": "684b9ab48cf932e64ef035e3"
+  },
+  "Product Name": "RED KING COBRA GUPPY FEMALE",
+  "Product Price": {
+    "1 unit": 27
+  },
+  "quantity": 9,
+  "expiryDate": "2026-09-02T00:00:00.000Z"
+},
+{
+  "_id": {
+    "$oid": "684b9ab48cf932e64ef035e4"
+  },
+  "Product Name": "GERMAN TUXEDO YELLOW GUPPY MALE",
+  "Product Price": {
+    "1 unit": 27
+  },
+  "quantity": 0,
+  "expiryDate": "2026-01-25T00:00:00.000Z"
+},
+{
+  "_id": {
+    "$oid": "684b9ab48cf932e64ef035e5"
+  },
+  "Product Name": "GERMAN TUXEDO YELLOW GUPPY FEMALE",
+  "Product Price": {
+    "1 unit": 27
+  },
+  "quantity": 12,
+  "expiryDate": "2026-07-11T00:00:00.000Z"
+},
+{
+  "_id": {
+    "$oid": "684b9ab48cf932e64ef035e6"
+  },
+  "Product Name": "HALF BLACK GUPPY MALE",
+  "Product Price": {
+    "1 unit": 27
+  },
+  "quantity": 2,
+  "expiryDate": "2026-02-05T00:00:00.000Z"
+},
+{
+  "_id": {
+    "$oid": "684b9ab48cf932e64ef035e7"
+  },
+  "Product Name": "HALF BLACK GUPPY FEMALE",
+  "Product Price": {
+    "1 unit": 27
+  },
+  "quantity": 10,
+  "expiryDate": "2026-11-30T00:00:00.000Z"
+},
+{
+  "_id": {
+    "$oid": "684b9ab48cf932e64ef035e8"
+  },
+  "Product Name": "TIGER GUPPY MALE",
+  "Product Price": {
+    "1 unit": 40
+  },
+  "quantity": 6,
+  "expiryDate": "2026-06-18T00:00:00.000Z"
+},
+{
+  "_id": {
+    "$oid": "684b9ab48cf932e64ef035e9"
+  },
+  "Product Name": "TIGER GUPPY FEMALE",
+  "Product Price": {
+    "1 unit": 40
+  },
+  "quantity": 0,
+  "expiryDate": "2026-04-07T00:00:00.000Z"
+},
+{
+  "_id": {
+    "$oid": "684b9ab48cf932e64ef035ea"
+  },
+  "Product Name": "PUFFER FIGURE-EIGHT 2\"",
+  "Product Price": {
+    "1 unit": 80
+  },
+  "quantity": 18,
+  "expiryDate": "2026-10-22T00:00:00.000Z"
+}]

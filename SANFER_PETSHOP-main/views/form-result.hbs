@@ -1,0 +1,24 @@
+<body>
+    {{> navbar}}
+
+    <div class="main">
+        <div id="form-result-base">
+
+            {{#if result}}
+            {{!-- Form send is successful --}}
+            <h1>Form is successfully sent!</h1>
+            <p>Expect a response within 2-3 business days!</p>
+            {{else}}
+            {{!-- Form send is not successful --}}
+            <h1>Form is not successfully sent!</h1>
+            <h2> Something went wrong along the way...</h2>
+            {{/if}}
+
+            <button id="home-redirect" onclick="location.href='/'"> Press me to go Home!</button>
+
+
+        </div>
+
+    </div>
+
+</body>

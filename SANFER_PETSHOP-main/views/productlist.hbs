@@ -1,0 +1,67 @@
+<title>Product List</title>
+
+<body>
+
+    {{> navbar}}
+
+    <div class="main">
+
+        {{#if Products}}
+
+        <div id="productlist-base">
+
+            <div id="productlist-options">
+                <div id="search-container">
+                    <div id="search-icon">
+                            <button id="search-button"><i class="fa fa-search"></i></button>
+                    </div>
+                    <form id="search-form" method="get">
+                        <input id="search-bar" type="search" name="q" placeholder="Looking for something?">
+                    </form>
+                </div>
+                <div id="filter-container">
+                    <p id="sort-alphabetically" onclick="sortAlphabetical()">A-Z</p>
+                    <p>|</p>
+                    <div id="filter-icon">
+                        <i class="fa fa-filter"></i>
+                    </div>
+
+                    <div id="sort-box" style="visibility:hidden">
+                        <div id='bs' class="filter" onclick="bestSellers()">Best Sellers</div>
+                        <div id='pri' class="filter" onclick="price()">Price</div>
+                        <div id='av' class ="filter" onclick="availability()">Availability</div>
+                        <div id='s' class="filter" onclick="size()">Size</div>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+            <div id="productlist-main">
+                
+                {{#each (allProductsToArray Products)}}
+                    {{> productbox this}}
+                {{/each}}
+                
+            </div>
+
+        </div>
+
+        {{else}}
+                <div id="notfound-base">
+
+                    <div id="notfound-container">
+                        <h1>No Results</h1>
+                        <p>product not found</p>
+                        <a href="/product-list"><button id="productlist-redirect">Press here to go back</button></a>
+                    </div>
+            
+                </div>
+
+        {{/if}}
+
+    </div>
+
+    {{> footer}}
+
+</body>

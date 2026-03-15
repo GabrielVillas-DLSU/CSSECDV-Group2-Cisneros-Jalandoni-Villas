@@ -1,0 +1,39 @@
+[{
+  "_id": {
+    "$oid": "687774affdfb6e6e3a2983c7"
+  },
+  "productName": "Printer Ink",
+  "unitPrice": 850,
+  "quantity": 1,
+  "totalPrice": 850,
+  "date": null,
+  "description": "Office Supplies"
+},
+{
+  "_id": {
+    "$oid": "6877754609cd42452915090f"
+  },
+  "productName": "TUXEDO COBRA GUPPY MALE",
+  "unitPrice": 12,
+  "quantity": 1,
+  "totalPrice": 12,
+  "description": "fish food",
+  "date": {
+    "$date": "2025-07-31T00:00:00.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6878b866139cf06678a4302d"
+  },
+  "productName": "test",
+  "unitPrice": 12,
+  "quantity": 2,
+  "totalPrice": 24,
+  "description": "hi",
+  "date": {
+    "$date": "2025-07-31T00:00:00.000Z"
+  },
+  "__v": 0
+}]

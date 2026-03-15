@@ -1,0 +1,126 @@
+:root{
+    --input-box-bg: #E8E8E8;
+    --submit-button-bg: #535AB4;
+    --submit-button-bg-hover: #424890;
+    --header-1-color: #ec1454;
+}
+#form-base {
+    display: flex;
+}
+
+#form-base > #form-left{
+    width: 60%;
+    margin-right: 50px;
+    padding-top: 160px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+#form-base > #form-right{
+    width: 40%;
+    text-align: center;
+    display: flex;
+    margin-top: 30px;
+}
+
+#form-right img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#form-left h1{
+    color: var(--color11);
+    font-weight: bold;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+#form-left h2{
+    font-size: 20px;
+    font-weight: 300px;
+    margin-bottom: 10px;
+}
+
+#form-left div{
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+#form-left .input-box{
+    background-color: var(--input-box-bg);
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px;
+}
+
+#form-left #message-box{
+    text-align: left;
+    overflow-y: auto;
+    background-color: var(--input-box-bg);
+    padding: 20px;
+    height: 300px;
+    max-width: 100%;
+    width: 100%;
+    border-radius: 20px;
+    resize: none;
+    word-wrap: break-word;
+}
+
+#send-button{
+    background-color: var(--submit-button-bg);
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    border-radius: 100px;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+}
+
+#send-button button{
+    width: 100%;
+}
+
+#send-button:hover{
+    background-color: var(--submit-button-bg-hover);
+    cursor: pointer;
+}
+
+/* Form result */
+
+#form-result-base{
+    padding: 50px;
+    text-align: center;
+}
+
+#form-result-base h1{
+    font-size: 100px;
+    color: var(--header-1-color);
+    font-weight: bold;
+}
+
+#form-result-base > h2{
+    font-size: 30px;
+    font-weight: 100;
+}
+
+#form-result-base > p{
+    font-size: 50px;
+}
+
+#home-redirect {
+    margin-top: 100px;
+    padding: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    background-color: var(--submit-button-bg);
+    width: 100%;
+    border-radius: 30px;
+}
+
+#home-redirect:hover{
+    cursor: pointer;
+    background-color: var(--submit-button-bg-hover);
+}

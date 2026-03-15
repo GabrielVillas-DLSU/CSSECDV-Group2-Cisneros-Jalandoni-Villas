@@ -1,0 +1,56 @@
+[{
+  "_id": {
+    "$oid": "687110bfa13423bd6c7e6fc5"
+  },
+  "productName": "TUXEDO COBRA GUPPY MALE",
+  "unitPrice": 12,
+  "quantity": 1,
+  "totalPrice": 12,
+  "customerName": "Maria Santos",
+  "date": null,
+  "paymentMethod": "Card",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "687112cfc4da42bed090d25e"
+  },
+  "productName": "RED KING COBRA GUPPY MALE",
+  "unitPrice": 15.5,
+  "quantity": 3,
+  "totalPrice": 46.5,
+  "customerName": "Jimmy ",
+  "date": null,
+  "paymentMethod": "Other",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6878ae44139cf06678a42fc7"
+  },
+  "productName": "TEST",
+  "unitPrice": 13,
+  "quantity": 2,
+  "totalPrice": 26,
+  "customerName": "Maria Santos",
+  "date": {
+    "$date": "2025-07-31T00:00:00.000Z"
+  },
+  "paymentMethod": "GCash",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6878b7f4139cf06678a43021"
+  },
+  "productName": "test",
+  "unitPrice": 12,
+  "quantity": 4,
+  "totalPrice": 48,
+  "customerName": "Maria Santos",
+  "date": {
+    "$date": "2025-07-31T00:00:00.000Z"
+  },
+  "paymentMethod": "Cash",
+  "__v": 0
+}]
