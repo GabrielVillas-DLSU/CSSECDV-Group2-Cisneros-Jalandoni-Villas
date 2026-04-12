@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { User, userSchema } = require("./user");
+const User = require("./user");
 
 // Connect to database (LOCALLY)
 function connectToDB() {
@@ -46,7 +46,9 @@ const expenseSchema = new mongoose.Schema({
 
 const Expense = mongoose.model("Expense", expenseSchema, "Expenses");
 
-
+async function getAllUsers() {
+    return await User.find({}).lean();
+}
 // Function to get all products 
 async function getAllProducts() {
     return await Product.find({}).lean();
@@ -63,6 +65,7 @@ module.exports = {
     getProduct,
     Product,
     User,
+    getAllUsers,
     Sale,
     Expense,
 };

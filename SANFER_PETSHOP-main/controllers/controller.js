@@ -554,32 +554,33 @@ const controller = {
     }
 },
 
-/*Expense Controller*/
-    getExpensesList: async function (req, res) {
-        try {
-            const expenses = await db.Expense.find({}).lean();
+getExpensesList: async function (req, res) {
+    try {
+        // 🔥 GET USERS INSTEAD OF EXPENSES
+        const users = await db.getAllUsers();
 
-            // Optional search/filter
-            if ("q" in req.query && req.query.q) {
-                const q = req.query.q.toLowerCase();
+        // 🔍 SEARCH FUNCTION (UPDATED FOR USERS)
+        if ("q" in req.query && req.query.q) {
+            const q = req.query.q.toLowerCase();
 
-                const filteredExpenses = expenses.filter(exp =>
-                    exp.productName.toLowerCase().includes(q) ||
-                    exp.description.toLowerCase().includes(q)
-                );
+            const filteredUsers = users.filter(user =>
+                (user.username || "").toLowerCase().includes(q) ||
+                (user.role || "").toLowerCase().includes(q)
+            );
 
-                return res.render("expense", {
-                    Expenses: filteredExpenses,
-                    user: req.session.user,
-                    messages: req.flash(),
-                });
-            }
-
-            res.render("expense", {
-                Expenses: expenses,
+            return res.render("expense", {
+                Users: filteredUsers,
                 user: req.session.user,
                 messages: req.flash(),
             });
+        }
+
+        // ✅ NORMAL RENDER
+        res.render("expense", {
+            Users: users,
+            user: req.session.user,
+            messages: req.flash(),
+        });
         } catch (error) {
         console.error("Error in getExpensesList:", error);
         res.status(500).render("500");
@@ -703,10 +704,43 @@ const controller = {
             req.flash("error", "Failed to add expense.");
             res.redirect("/addexpense");
         }
+    },
+getEditUser: async function (req, res) {
+    try {
+        const user = await db.User.findById(req.params.id).lean();
+        res.render("editUser", { user });
+    } catch (err) {
+        console.error(err);
+        res.status(500).render("500");
     }
+},
+    updateUser: async function (req, res) {
+    try {
+        const { username, role } = req.body;
 
-    
+        await db.User.findByIdAndUpdate(req.params.id, {
+            username,
+            role
+        });
+
+        res.redirect("/expense");
+    } catch (err) {
+        console.error(err);
+        res.status(500).render("500");
+    }
+},
+deleteUser: async function (req, res) {
+    try {
+        await db.User.findByIdAndDelete(req.params.id);
+        res.sendStatus(200);
+    } catch (err) {
+        console.error(err);
+        res.sendStatus(500);
+    }
+},
+
 }
+
 
 
 module.exports = controller

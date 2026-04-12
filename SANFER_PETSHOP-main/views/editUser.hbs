@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit User</title>
+    <link rel="stylesheet" href="/css/cashier.css">
+    
+</head>
+
+<body>
+
+{{> navbar}}
+
+<div class="main">
+    <h2>Edit Account</h2>
+
+    <form method="POST" action="/update-user/{{user._id}}">
+        
+        <label>Username:</label>
+        <input type="text" name="username" value="{{user.username}}" required>
+
+        <label>Role:</label>
+        <select name="role">
+            <option value="admin" {{#if (eq user.role "admin")}}selected{{/if}}>Admin</option>
+            <option value="editor" {{#if (eq user.role "editor")}}selected{{/if}}>Editor</option>
+            <option value="cashier" {{#if (eq user.role "cashier")}}selected{{/if}}>Cashier</option>
+        </select>
+
+        <br><br>
+
+        <button type="submit">Save Changes</button>
+    </form>
+</div>
+
+{{> footer}}
+
+</body>
+</html>

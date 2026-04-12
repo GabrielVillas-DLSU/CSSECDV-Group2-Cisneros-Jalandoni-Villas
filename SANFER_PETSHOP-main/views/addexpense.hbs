@@ -2,68 +2,98 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add Expense</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="css/login.css">
+    <style>
+        .password-requirements {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1;
+            width: 250px;
+            text-align: left;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        #password:hover + .password-requirements,
+        #password:focus + .password-requirements {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-{{> navbar}}
+    {{> navbar}}
 
-<div class="main">
-    <div class="form-container">
-        <h1 class="form-title">Add Expense</h1>
+    <main>
+        <div class="container">
+            <h2>Register</h2>
+            {{#if messages.error}}
+                <div class="alert alert-danger">{{messages.error}}</div>
+            {{/if}}
+            <form action="/auth/register" method="POST">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
 
-        {{#if messages.error}}
-            <p class="form-message error">{{messages.error}}</p>
-        {{/if}}
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <div class="password-requirements">
+                        <p>At least one lowercase letter</p>
+                        <p>At least one uppercase letter</p>
+                        <p>At least one digit</p>
+                        <p>At least one special character (@$!%*?&)</p>
+                        <p>Minimum length 12 characters</p>
+                    </div>
+                </div>
 
-        {{#if messages.success}}
-            <p class="form-message success">{{messages.success}}</p>
-        {{/if}}
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    <div class="password-requirements">
+                        <p>At least one lowercase letter</p>
+                        <p>At least one uppercase letter</p>
+                        <p>At least one digit</p>
+                        <p>At least one special character (@$!%*?&)</p>
+                        <p>Minimum length 12 characters</p>
+                    </div>
+                </div>
 
-        <form method="POST" action="/addexpense" id="add-expense-form">
-            <div class="form-group">
-                <label for="productName">Product Name</label>
-                <input type="text" name="productName" id="productName" required>
-            </div>
 
-            <div class="form-group">
-                <label for="quantity">Quantity</label>
-                <input type="number" name="quantity" id="quantity" min="1" value="1" required oninput="calculateTotal()">
-            </div>
+                <div class="form-group">
+                    <label for="role">Role:</label>
+                    <select id="role" name="role" required>
+                        <option value="cashier">Cashier</option>
+                        <option value="editor">Editor</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
 
-            <div class="form-group">
-                <label for="unitPrice">Unit Price (₱)</label>
-                <input type="number" name="unitPrice" id="unitPrice" min="1" step="any" required oninput="calculateTotal()">
-            </div>
+                <div class="form-group">
+                    <label for="securityQuestion">Security Question:</label>
+                    <select name="securityQuestion" required>
+                        <option value="">Select a security question</option>
+                        <option value="What was your childhood nickname?">What was your childhood nickname?</option>
+                        <option value="What is the name of your first pet?">What is the name of your first pet?</option>
+                        <option value="What is your mother’s maiden name?">What is your mother’s maiden name?</option>
+                    </select>
+                </div>
 
-            <div class="form-group">
-                <label for="totalPrice">Total Price (₱)</label>
-                <input type="number" id="totalPrice" name="price" readonly required>
-            </div>
+                <div class="form-group">
+                    <label for="securityAnswer">Security Answer:</label>
+                    <input type="text" id="securityAnswer" name="securityAnswer" required>
+                </div>
 
-            <div class="form-group">
-                <label for="description">Description</label>
-                <input type="text" name="description" id="description" required>
-            </div>
-
-            <div class="form-group">
-                <label for="date">Date</label>
-                <input type="date" name="date" value="{{todayDate}}" required>
-            </div>
-
-            <button type="submit" id="save-button" class="submit-button">Save</button>
-        </form>
-
-        <script>
-            function calculateTotal() {
-                const qty = Number(document.getElementById('quantity').value);
-                const unit = Number(document.getElementById('unitPrice').value);
-                const total = qty && unit ? qty * unit : 0;
-                document.getElementById('totalPrice').value = total.toFixed(2);
-            }
-        </script>
-    </div>
-</div>
-
-{{> footer}}
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </main>
+    <br>
 </body>
 </html>

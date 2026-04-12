@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Expense Panel - Expense Invoice</title>
+    <title>Account Panel</title>
     <link rel="stylesheet" href="/css/cashier.css">
 </head>
 <body>
@@ -17,204 +17,118 @@
             <div class="form-message error">{{messages.error}}</div>
         {{/if}}
 
-        {{#if Expenses}}
+        {{#if Users}}
         <div id="productlist-base">
+
+            <!-- This Part searches the user accounts  -->
             <div id="productlist-options">
                 <div id="search-container">
                     <div id="search-icon">
                         <button id="search-button"><i class="fa fa-search"></i></button>
                     </div>
                     <form id="search-form" method="get" action="/expense">
-                        <input id="search-bar" type="search" name="q" placeholder="Search for expenses...">
+                        <input id="search-bar" type="search" name="q" placeholder="Search accounts...">
                     </form>
                 </div>
 
+                <!-- This Part adds account by the admin -->
                 <div id="add-product-container">
                     <a href="/addexpense">
-                        <button id="add-product-button">Add Expense</button>
+                        <button id="add-product-button">Add Account</button>
                     </a>
-                    <button onclick="toggleDeleteMode()" class="delete-toggle-button">Delete Expense</button>
-                </div>
-
-                <div id="filter-container">
+                    <button onclick="toggleDeleteMode()" class="delete-toggle-button">
+                    Delete Account
+                    </button>
                 </div>
             </div>
 
+            <!-- This Part is the table where the admin can see all the accounts given  -->
             <div class="product-table-container">
                 <table class="product-table">
                     <thead>
                         <tr>
-                            <th>Product</th>
-                            <th>Quantity</th>
-                            <th>Unit Price</th>
-                            <th>Total Price</th>
-                            <th>Date</th>
-                            <th>Description</th>
+                            <th>Username</th>
+                            <th>Password</th>
+                            <th>Role</th>
+                            <th>Last Updated</th>
                             <th>Edit</th>
                         </tr>
                     </thead>
+
                     <tbody>
-                    {{#each Expenses}}
+                    {{#each Users}}
                     <tr id="row-{{this._id}}">
-                        <form method="POST" action="/update-expense/{{this._id}}">
-                            <input type="hidden" name="source" value="inline">
+                        <td>{{this.username}}</td>
 
-                            <td>
-                                <span class="view-mode">{{this.productName}}</span>
-                                <input class="edit-mode" type="text" name="productName" value="{{this.productName}}" style="display:none;">
-                            </td>
+                        <!-- This Part does not show the password -->
+                        <td>********</td>
 
-                            <td>
-                                <span class="view-mode">{{this.quantity}}</span>
-                                <input class="edit-mode" type="number" name="quantity" min="1" value="{{this.quantity}}" style="display:none;">
-                            </td>
+                        <td>{{this.role}}</td>
 
-                            <td>
-                                <span class="view-mode">₱{{this.unitPrice}}</span>
-                                <input class="edit-mode" type="number" name="unitPrice" min="1" step="any" value="{{this.unitPrice}}" style="display:none;">
-                            </td>
+                        <td>{{formatDate this.passwordChangedAt}}</td>
 
-                            <td>
-                                <span class="view-mode">₱{{this.totalPrice}}</span>
-                                <input class="edit-mode" type="number" name="totalPrice" value="{{this.totalPrice}}" readonly style="display:none;">
-                            </td>
-
-                            <td>
-                                <span class="view-mode">{{formatDate this.date}}</span>
-                                <input class="edit-mode" type="date" name="date" value="{{this.date}}" style="display:none;">
-                            </td>
-
-                            <td>
-                                <span class="view-mode">{{this.description}}</span>
-                                <input class="edit-mode" type="text" name="description" value="{{this.description}}" style="display:none;">
-                            </td>
-
-                            <td>
-                                <button type="button" class="edit-button" onclick="enableEditMode('{{this._id}}')">Edit</button>
-                                <button class="edit-mode" type="button" onclick="submitInlineEdit('{{this._id}}')" style="display:none;">Save</button>
-                                <button type="button" class="delete-button" onclick="deleteExpense('{{this._id}}')" style="display: none;">❌</button>
-                            </td>
-                        </form>
+                        <td>
+                            <a href="/edit-user/{{this._id}}">
+                            <button class="edit-button">Edit</button>
+                            </a>
+                            <button type="button" class="delete-button" onclick="deleteUser('{{this._id}}')">❌</button>
+                        </td>
                     </tr>
                     {{/each}}
-                </tbody>
+                    </tbody>
                 </table>
             </div>
         </div>
 
         {{else}}
 
+        <!-- This Part displays if there are no users available in the db  -->
         <div id="productlist-options">
-                <div id="search-container">
-                    <div id="search-icon">
-                        <button id="search-button"><i class="fa fa-search"></i></button>
-                    </div>
-                    <form id="search-form" method="get" action="/expense">
-                        <input id="search-bar" type="search" name="q" placeholder="Search for expenses...">
-                    </form>
-                </div>
+            <div id="search-container">
+                <form id="search-form" method="get" action="/expense">
+                    <input id="search-bar" type="search" name="q" placeholder="Search accounts...">
+                </form>
+            </div>
 
-                <div id="add-product-container">
-                    <a href="/addexpense">
-                        <button id="add-product-button">Add Expense</button>
-                    </a>
-                    <button onclick="toggleDeleteMode()" class="delete-toggle-button">Delete Expense</button>
-                </div>
-
-                <div id="filter-container">
-                </div>
-        </div>
-        
-        <div id="notfound-base">
-            <div id="notfound-container">
-                <h1>No Expenses Found</h1>
-                <p>No expense records available.</p>
-                <a href="/expense"><button id="productlist-redirect">Refresh</button></a>
+            <div id="add-product-container">
+                <a href="/addexpense">
+                    <button id="add-product-button">Add Account</button>
+                </a>
             </div>
         </div>
+
+        <div id="notfound-base">
+            <div id="notfound-container">
+                <h1>No Accounts Found</h1>
+                <p>No account records available.</p>
+                <a href="/expense"><button>Refresh</button></a>
+            </div>
+        </div>
+
         {{/if}}
     </div>
 
-    <script>
+    <!-- This Part is the javascript  -->
+<script>
+function deleteUser(id) {
+    if (!confirm("Are you sure you want to delete this account?")) return;
 
-        function submitInlineEdit(id) {
-            const row = document.getElementById(`row-${id}`);
-            const form = row.querySelector("form");
-            const formData = new FormData(form);
-            const payload = {};
-
-            for (let [key, val] of formData.entries()) {
-                payload[key] = val;
-            }
-
-            // Convert numeric fields to numbers for validation
-            const quantity = parseFloat(payload.quantity);
-            const unitPrice = parseFloat(payload.unitPrice);
-
-            // Block negative or zero values
-            if (quantity <= 0 || unitPrice <= 0) {
-                alert("Quantity and Unit Price must be greater than 0.");
-                return;
-            }
-
-            fetch(`/update-expense/${id}`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(payload)
-            })
-            .then(async (res) => {
-                if (res.ok) {
-                    location.reload();
-                } else {
-                    const data = await res.json();
-                    alert("Failed to save: " + (data.error || "Unknown error"));
-                }
-            })
-
-            .catch(err => {
-                console.error(err);
-                alert("Something went wrong.");
-            });
+    fetch(`/delete-user/${id}`, {
+        method: "DELETE",
+    })
+    .then(res => {
+        if (res.ok) {
+            location.reload();
+        } else {
+            alert("Failed to delete user");
         }
-
-        function enableEditMode(id) {
-            const row = document.getElementById(`row-${id}`);
-            row.querySelectorAll('.view-mode').forEach(e => e.style.display = 'none');
-            row.querySelectorAll('.edit-mode').forEach(e => e.style.display = 'inline');
-
-            const unitInput = row.querySelector('input[name="unitPrice"]');
-            const quantityInput = row.querySelector('input[name="quantity"]');
-            const totalInput = row.querySelector('input[name="totalPrice"]');
-
-            function updateTotal() {
-                const unit = parseFloat(unitInput.value) || 0;
-                const qty = parseFloat(quantityInput.value) || 0;
-                totalInput.value = (unit * qty).toFixed(2);
-            }
-
-            unitInput.addEventListener('input', updateTotal);
-            quantityInput.addEventListener('input', updateTotal);
-        }
-
-        function toggleDeleteMode() {
-            document.querySelectorAll('.delete-button').forEach(btn => {
-                btn.style.display = btn.style.display === 'none' ? 'inline-block' : 'none';
-            });
-        }
-
-        function deleteExpense(id) {
-            if (!confirm("Are you sure you want to delete this expense?")) return;
-
-            fetch(`/deleteexpense/${id}`, {
-                method: "DELETE",
-            }).then(res => {
-                if (res.ok) location.reload();
-                else alert("Failed to delete expense.");
-            });
-        }
-    </script>
+    })
+    .catch(err => {
+        console.error(err);
+        alert("Error deleting user");
+    });
+}
+</script>
 
     {{> footer}}
 </body>

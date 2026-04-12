@@ -96,7 +96,9 @@ app.get("/expense", authorize.authorize(["admin"]), controller.getExpensesList);
 app.get("/addexpense", authorize.authorize(["admin"]), controller.getAddExpense);
 app.post("/addexpense", authorize.authorize(["admin"]), controller.postAddExpense);
 app.delete("/deleteexpense/:id", authorize.authorize(["admin"]), controller.deleteExpense);
+app.delete("/delete-user/:id", authorize.authorize(["admin"]), controller.deleteUser);
 app.post("/update-expense/:id", authorize.authorize(["admin"]), controller.updateExpense);
-
+app.get("/edit-user/:id", authorize.authorize(["admin"]), controller.getEditUser);
+app.post("/update-user/:id", authorize.authorize(["admin"]), controller.updateUser);
 
 module.exports = app
