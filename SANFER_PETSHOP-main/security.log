@@ -13,11 +13,24 @@
 {"level":"info","message":"Successful login by: DumasAdmin2.","timestamp":"4/12/2026, 1:28:35 PM"}
 {"level":"info","message":"Successful login by: DumasAdmin2.","timestamp":"4/12/2026, 1:32:47 PM"}
 {"level":"info","message":"Successful login by: DumasAdmin2.","timestamp":"4/12/2026, 1:47:50 PM"}
-{"level":"warn","message":"Access control failure: User DeleteThisUser attempted to access /expense."}
-{"level":"warn","message":"Access control failure: User DeleteThisUser attempted to access /expense."}
 {"level":"info","message":"Successful login by: DumasAdmin2.","timestamp":"4/12/2026, 1:49:34 PM"}
 {"level":"info","message":"Successful login by: DumasAdmin2.","timestamp":"4/12/2026, 2:15:36 PM"}
 {"level":"info","message":"Successful login by: DumasAdmin2.","timestamp":"4/12/2026, 2:17:52 PM"}
 {"level":"info","message":"Successful login by: GabrielAdmin.","timestamp":"4/12/2026, 2:24:05 PM"}
 {"level":"info","message":"Successful login by: DumasAdmin2.","timestamp":"4/12/2026, 2:27:44 PM"}
 {"level":"info","message":"Successful login by: JohnAdmin.","timestamp":"4/12/2026, 2:29:23 PM"}
+{"level":"info","message":"Successful login by: DumasAdmin2.","timestamp":"4/12/2026, 5:43:58 PM"}
+{"level":"warn","message":"Invalid login attempt by: DumasAdmin2.","timestamp":"4/12/2026, 5:45:56 PM"}
+{"level":"warn","message":"Invalid login attempt by: DumasAdmin2.","timestamp":"4/12/2026, 5:46:00 PM"}
+{"level":"info","message":"Successful login by: JohnAdmin.","timestamp":"4/12/2026, 5:46:41 PM"}
+{"level":"info","message":"Successful login by: DumasAdmin2.","timestamp":"4/12/2026, 5:51:05 PM"}
+{"level":"info","message":"Successful login by: DumasAdmin2.","timestamp":"4/12/2026, 5:52:37 PM"}
+{"level":"info","message":"Successful login by: GabrielAdmin.","timestamp":"4/12/2026, 5:56:07 PM"}
+{"level":"info","message":"Successful login by: DumasAdmin2.","timestamp":"4/12/2026, 6:06:28 PM"}
+{"level":"info","message":"Successful login by: DumasAdmin2.","timestamp":"4/12/2026, 6:08:23 PM"}
+{"level":"info","message":"Successful login by: DumasAdmin2.","timestamp":"4/12/2026, 6:11:39 PM"}
+{"level":"warn","message":"User DumasAdmin2 deleted account DumasEditor"}
+{"level":"info","message":"Successful login by: DumasAdmin2.","timestamp":"4/12/2026, 6:16:56 PM"}
+{"level":"info","message":"Successful login by: DumasAdmin2.","timestamp":"4/12/2026, 6:17:49 PM"}
+{"level":"info","message":"Successful login by: GabrielAdmin.","timestamp":"4/12/2026, 6:28:52 PM"}
+{"level":"info","message":"Successful login by: GabrielAdmin.","timestamp":"4/12/2026, 6:34:16 PM"}
