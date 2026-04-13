@@ -34,3 +34,17 @@
 {"level":"info","message":"Successful login by: DumasAdmin2.","timestamp":"4/12/2026, 6:17:49 PM"}
 {"level":"info","message":"Successful login by: GabrielAdmin.","timestamp":"4/12/2026, 6:28:52 PM"}
 {"level":"info","message":"Successful login by: GabrielAdmin.","timestamp":"4/12/2026, 6:34:16 PM"}
+{"level":"info","message":"Successful login by: DumasAdmin2.","timestamp":"4/13/2026, 10:50:43 AM"}
+{"level":"warn","message":"Invalid login attempt by: DumasAdmin2.","timestamp":"4/13/2026, 10:54:44 AM"}
+{"level":"info","message":"Successful login by: GabrielAdmin.","timestamp":"4/13/2026, 11:02:32 AM"}
+{"level":"warn","message":"Invalid login attempt by: DumasAdmin2.","timestamp":"4/13/2026, 11:16:46 AM"}
+{"level":"warn","message":"Invalid login attempt by: ChaCashier.","timestamp":"4/13/2026, 11:22:41 AM"}
+{"level":"warn","message":"Invalid login attempt by: ChaCashier.","timestamp":"4/13/2026, 11:22:49 AM"}
+{"level":"warn","message":"Invalid login attempt by: ChaCashier.","timestamp":"4/13/2026, 11:22:58 AM"}
+{"level":"warn","message":"Invalid login attempt by: ChaCashier.","timestamp":"4/13/2026, 11:23:04 AM"}
+{"level":"warn","message":"Account: ChaCashier locked due to too many failed login attempts.","timestamp":"4/13/2026, 11:23:10 AM"}
+{"level":"warn","message":"Password change attemps by: ChaCashier.","timestamp":"4/13/2026, 11:24:04 AM"}
+{"level":"warn","message":"Password change attemps by: GabrielAdmin.","timestamp":"4/13/2026, 11:24:24 AM"}
+{"level":"warn","message":"Password change attemps by: JohnCashier.","timestamp":"4/13/2026, 11:25:37 AM"}
+{"level":"info","message":"Successful login by: GabrielAdmin.","timestamp":"4/13/2026, 11:48:56 AM"}
+{"level":"info","message":"Successful login by: GabrielAdmin.","timestamp":"4/13/2026, 12:31:18 PM"}

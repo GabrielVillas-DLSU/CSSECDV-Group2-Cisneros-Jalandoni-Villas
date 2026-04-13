@@ -554,12 +554,13 @@ const controller = {
     }
 },
 
+// This is for accounts not expenses
 getExpensesList: async function (req, res) {
     try {
-        // 🔥 GET USERS INSTEAD OF EXPENSES
+        // This gets the user from MongoDb
         const users = await db.getAllUsers();
 
-        // 🔍 SEARCH FUNCTION (UPDATED FOR USERS)
+        // This is for searching the account
         if ("q" in req.query && req.query.q) {
             const q = req.query.q.toLowerCase();
 
@@ -575,7 +576,7 @@ getExpensesList: async function (req, res) {
             });
         }
 
-        // ✅ NORMAL RENDER
+        // Renders users
         res.render("expense", {
             Users: users,
             user: req.session.user,
@@ -616,7 +617,7 @@ getExpensesList: async function (req, res) {
 
             // Inline edit
             if (source === "inline") {
-                // ✅ Validate required fields
+                // This is to validate requred fields
                 if (!productName || !description || !unitPrice || !quantity|| !date) {
                     return res.status(400).json({ error: "All fields are required." });
                 }

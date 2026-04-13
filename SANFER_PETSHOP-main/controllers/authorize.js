@@ -1,6 +1,7 @@
 const logger = require("./logger"); // Adjust the path if needed
 
-
+// 2.1.1. Require authentication for all pages and resources, except those specifically intended to
+// be public
 const authorize = (roles) => {
     return (req, res, next) => {
         if (!req.session.user) {

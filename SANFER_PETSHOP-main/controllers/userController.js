@@ -51,6 +51,8 @@ exports.getLoginAttempts = async (req, res) => {
     }
 };
 
+//2.1.1. Require authentication for all pages and resources, except those specifically intended to
+// be public
 exports.authorize = (roles) => {
     return (req, res, next) => {
         if (!req.session.user || !roles.includes(req.session.user.role)) {
@@ -60,7 +62,9 @@ exports.authorize = (roles) => {
         next();
     };
 };
-
+// 2.1.4. Authentication failure responses should not indicate which part of the authentication data
+// was incorrect. For example, instead of "Invalid username" or "Invalid password", just use
+// Invalid username and/or password for both
 exports.login = async (req, res) => {
     const { username, password } = req.body;
 
@@ -73,7 +77,10 @@ exports.login = async (req, res) => {
             return res.redirect('/login');
         }
 
-        // Check if account is locked
+        // 2.1.8. Enforce account disabling after an established number of invalid login attempts (e.g., five
+        // attempts is common). The account must be disabled for a period of time sufficient to
+        // discourage brute force guessing of credentials, but not so long as to allow for a denial-of-
+        // service attack to be performed
         if (user.lockUntil && user.lockUntil.getTime() > now) {
             const remaining = Math.ceil((user.lockUntil.getTime() - now) / 60000);
             req.flash('error', `Account is locked. Try again in ${remaining} minute(s).`);
@@ -151,7 +158,7 @@ exports.logout = (req, res) => {
     });
 }; 
 
-
+//2.1.6. Enforce password length requirements established by policy or regulation
 exports.register = async (req, res) => {
     try {
         const { username, password, confirmPassword, role, email, securityQuestion, securityAnswer } = req.body;
@@ -197,7 +204,7 @@ exports.register = async (req, res) => {
         }
 
         const now = Date.now();
-        
+        //2.1.3. Only cryptographically strong one-way salted hashes of passwords are stored
         const hashedPasswordForHistory = await bcrypt.hash(password, 12);
 
         const newUser = new User({
@@ -255,7 +262,8 @@ exports.initiateReset = async (req, res) => {
             req.flash('error', 'No security question set for this account contact admin');
             return res.redirect("/forgot-password");
         }
-
+        // 2.1.9. Password reset questions should support sufficiently random answers. (e.g., "favorite
+        // book" is a bad question because “The Bible” is a very common answer)
         res.render("reset-password", {
             userId: user._id,
             securityQuestion: user.securityQuestion,
