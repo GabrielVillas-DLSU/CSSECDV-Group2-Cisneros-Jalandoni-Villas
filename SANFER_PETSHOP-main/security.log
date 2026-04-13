@@ -70,3 +70,9 @@
 {"level":"warn","message":"Password change attemps by: GabrielAdmin.","timestamp":"4/13/2026, 10:38:43 PM"}
 {"level":"warn","message":"Password change attemps by: CaseyCashier.","timestamp":"4/13/2026, 10:38:59 PM"}
 {"level":"warn","message":"You cannot reuse an old password: 69db6c1a8af506cd03ac858a.","timestamp":"4/13/2026, 10:43:47 PM"}
+{"level":"warn","message":"Invalid login attempt by: GabrielAdmin.","timestamp":"4/13/2026, 10:49:14 PM"}
+{"level":"info","message":"Successful login by: GabrielAdmin.","timestamp":"4/13/2026, 10:49:23 PM"}
+{"level":"warn","message":"Invalid login attempt by: JohnEditor.","timestamp":"4/13/2026, 10:50:46 PM"}
+{"level":"warn","message":"Invalid login attempt by: JohnEditor.","timestamp":"4/13/2026, 10:51:00 PM"}
+{"level":"warn","message":"Invalid login attempt by: GabrielAdmin.","timestamp":"4/13/2026, 10:52:44 PM"}
+{"level":"info","message":"Successful login by: GabrielAdmin.","timestamp":"4/13/2026, 10:52:54 PM"}
