@@ -455,6 +455,16 @@ const controller = {
     try {
         const {productName, customerName,  unitPrice, date, quantity, paymentMethod } = req.body;
 
+        if (productName.length < 3 || productName.length > 50) {
+            req.flash("error", "Product name must be between 3 and 50 characters.");
+            return res.redirect("/addsale");
+        }
+
+        if (customerName.length < 3 || customerName.length > 50) {
+            req.flash("error", "Customer name must be between 3 and 50 characters.");
+            return res.redirect("/addsale");
+        }
+
         const totalPrice = unitPrice * Number(quantity);
 
         const newSale = new db.Sale({
@@ -498,6 +508,18 @@ const controller = {
         const totalPrice = unitPrice * Number(quantity);
 
         const timestamp = new Date().toLocaleString();
+
+        if (productName.length < 3 || productName.length > 50) {
+            req.flash("error", "Name must be between 3 and 50 characters.");
+            req.flash("error", "Product name must be between 3 and 50 characters.");
+            return res.redirect("/cashier");
+        }
+
+        if (customerName.length < 3 || customerName.length > 50) {
+            req.flash("error", "Customer name must be between 3 and 50 characters.");
+            req.flash("error", "Name must be between 3 and 50 characters.");
+            return res.redirect("/cashier");
+        }
 
         // Inline edit
         if (source === "inline") {
