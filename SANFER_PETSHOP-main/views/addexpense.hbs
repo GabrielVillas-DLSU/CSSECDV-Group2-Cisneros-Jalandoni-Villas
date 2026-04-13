@@ -28,14 +28,14 @@
 </head>
 <body>
     {{> navbar}}
-
+    
     <main>
         <div class="container">
             <h2>Register</h2>
             {{#if messages.error}}
                 <div class="alert alert-danger">{{messages.error}}</div>
             {{/if}}
-            <form action="/auth/register" method="POST">
+            <form action="/add-user" method="POST">
                 <div class="form-group">
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username" required>

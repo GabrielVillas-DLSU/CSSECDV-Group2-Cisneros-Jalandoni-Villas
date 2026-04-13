@@ -3,12 +3,16 @@
 
 const fs = require("fs");
 const path = require("path");
+const passwordComplexityRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$/;
 
+const usernameRegex = /^(?=.{4,20}$)(?!.*[_.-]{2})[a-zA-Z0-9]+([._-]?[a-zA-Z0-9]+)*$/
+
+const minPasswordLength = 12;
 const db = require("../models/db.js");
 const userController = require("./userController");
 const User = require("../models/user");
 const logger = require("./logger");
-
+const bcrypt = require("bcrypt");
 const controller = {
 
     get404: function(req, res){
@@ -728,6 +732,7 @@ getExpensesList: async function (req, res) {
             res.redirect("/addexpense");
         }
     },
+// Assign/Change user roles for Administrator and Role A
 getEditUser: async function (req, res) {
     try {
         const user = await db.User.findById(req.params.id).lean();
@@ -752,6 +757,7 @@ getEditUser: async function (req, res) {
         res.status(500).render("500");
     }
 },
+// Delete Account
 deleteUser: async function (req, res) {
     try {
         await db.User.findByIdAndDelete(req.params.id);
@@ -761,7 +767,64 @@ deleteUser: async function (req, res) {
         res.sendStatus(500);
     }
 },
+// Add new Administrator and Role A accounts
 
+postAddUser: async function (req, res) {
+    try {
+        const { username, password, confirmPassword, role, securityQuestion, securityAnswer } = req.body;
+         if (username.length > 20){
+            req.flash('error', 'Invalid Username');
+            return res.redirect("/addexpense");
+        }
+
+        // Validate Username complexity
+        if (!usernameRegex.test(username)) {
+            req.flash('error', 'Invalid Username');
+            return res.redirect("/addexpense");
+        }
+
+        // Validate password complexity
+        if (!passwordComplexityRegex.test(password)) {
+            req.flash('error', 'Invalid Password');
+            return res.redirect("/addexpense");
+        }
+
+        if (password.length < minPasswordLength) {
+            req.flash('error', 'Invalid Password');
+            return res.redirect("/addexpense");
+        }
+
+        if (password !== confirmPassword){
+            req.flash('error', 'Password does not match');
+            return res.redirect("/addexpense");
+        }
+
+        const existing = await User.findOne({ username });
+        if (existing) {
+            req.flash("error", "Username already exists");
+            return res.redirect("/addexpense");
+        }
+        
+        const hashedPassword = await bcrypt.hash(password, 12);
+        const hashedAnswer = await bcrypt.hash(securityAnswer.toLowerCase(), 12);
+
+        await User.create({
+            username,
+            password: hashedPassword,
+            role,
+            securityQuestion,
+            securityAnswer: hashedAnswer,
+            passwordChangedAt: new Date()
+        });
+
+        res.redirect("/expense");
+
+    } catch (err) {
+        console.error("ADD USER ERROR:", err); 
+        req.flash("error", "Failed to create account");
+        res.redirect("/addexpense");
+    }
+}
 }
 
 

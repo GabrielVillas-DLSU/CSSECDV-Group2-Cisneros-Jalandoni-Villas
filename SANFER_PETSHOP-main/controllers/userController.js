@@ -221,13 +221,8 @@ exports.register = async (req, res) => {
 
         await newUser.save();
 
-        req.session.user = {
-            id: newUser._id,
-            username: newUser.username,
-            role: newUser.role,
-        };
+        return res.redirect("/login");
 
-        return res.redirect("/home");
 
     } catch (error) {
         req.flash('error', 'Registration Error');

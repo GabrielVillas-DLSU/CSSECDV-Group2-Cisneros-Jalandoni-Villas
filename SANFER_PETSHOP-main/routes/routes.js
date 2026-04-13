@@ -100,5 +100,5 @@ app.delete("/delete-user/:id", authorize.authorize(["admin"]), controller.delete
 app.post("/update-expense/:id", authorize.authorize(["admin"]), controller.updateExpense);
 app.get("/edit-user/:id", authorize.authorize(["admin"]), controller.getEditUser);
 app.post("/update-user/:id", authorize.authorize(["admin"]), controller.updateUser);
-
+app.post("/add-user", authorize.authorize(["admin"]), controller.postAddUser);
 module.exports = app
