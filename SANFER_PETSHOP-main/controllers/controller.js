@@ -134,41 +134,49 @@ const controller = {
     
 
     getAdmin: async function (req, res) {
-        try {
-            const logFilePath = path.join(__dirname, "../security.log");
+    try {
+        const logFilePath = path.join(__dirname, "../security.log");
 
-            fs.readFile(logFilePath, "utf8", (err, data) => {
-                if (err) {
-                    console.error("Error reading log file:", err);
-                    return res.status(500).send("Error reading log file.");
+        fs.readFile(logFilePath, "utf8", (err, data) => {
+            if (err) {
+                console.error("Error reading log file:", err);
+                return res.status(500).send("Error reading log file.");
+            }
+
+            // Split the log data into an array of lines
+            const logEntries = data.split("\n").filter(entry => entry.trim() !== "");
+
+            // Parse each log entry as JSON
+            const parsedLogEntries = logEntries.map(entry => {
+                try {
+                    return JSON.parse(entry);
+                } catch (error) {
+                    console.error("Error parsing log entry:", error);
+                    return null;
                 }
+            }).filter(entry => entry !== null);
 
-                // Split the log data into an array of lines
-                const logEntries = data.split("\n").filter(entry => entry.trim() !== "");
+            const query = req.query.q?.toLowerCase();
 
-                // Parse each log entry as JSON
-                const parsedLogEntries = logEntries.map(entry => {
-                    try {
-                        return JSON.parse(entry);
-                    } catch (error) {
-                        console.error("Error parsing log entry:", error);
-                        return null;
-                    }
-                }).filter(entry => entry !== null);
+            let filteredLogs = parsedLogEntries;
 
-                // Render the admin page with the parsed log data
-                res.render("admin", {
-                    layout: 'form-layout',
-                    logEntries: parsedLogEntries,
-                });
+            if (query) {
+                filteredLogs = parsedLogEntries.filter(log =>
+                    log.message?.toLowerCase().includes(query)
+                );
+            }
+
+            res.render("admin", {
+                layout: 'form-layout',
+                logEntries: filteredLogs,
             });
+        });
 
-        } catch (error) {
-            console.error("Error fetching log data:", error);
-            res.status(500).send("Error fetching log data.");
-        }
-    },
-
+    } catch (error) {
+        console.error("Error fetching log data:", error);
+        res.status(500).send("Error fetching log data.");
+    }
+},
     getRegister: function(req, res){
         res.render("register", {
             layout: 'form-layout',
